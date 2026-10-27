@@ -6,7 +6,9 @@ Rôle : fichier principal de l'application. C'est lui qu'on lance avec
 Il affiche :
   - la page de connexion / création de compte (avec thème et langue),
   - puis, une fois connecté, les 3 onglets : Accueil, Traitement,
-    Tableau de bord et rapport (provisoires pour l'instant).
+    Tableau de bord et rapport. Le contenu de chaque onglet est dans
+    son propre fichier : page_accueil.py, page_traitement.py,
+    page_tableau_bord_rapport.py.
 """
 
 import re
@@ -18,6 +20,9 @@ from gestion_comptes_utilisateurs import (
     verifier_utilisateur,
 )
 from traductions_fr_en import traduire
+from page_accueil import afficher_accueil
+from page_traitement import afficher_traitement
+from page_tableau_bord_rapport import afficher_tableau_bord
 
 # ---------- Configuration générale de la page ----------
 st.set_page_config(page_title="DeforestAlert", page_icon="🌳", layout="wide")
@@ -141,11 +146,11 @@ def application_connectee():
         [traduire(L, "accueil"), traduire(L, "traitement"), traduire(L, "tableau_bord")]
     )
     with onglet_accueil:
-        st.info(traduire(L, "a_construire"))
+        afficher_accueil(L)
     with onglet_traitement:
-        st.info(traduire(L, "a_construire"))
+        afficher_traitement(L)
     with onglet_tableau:
-        st.info(traduire(L, "a_construire"))
+        afficher_tableau_bord(L)
 
 
 # ---------- Lancement ----------
