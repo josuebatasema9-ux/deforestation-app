@@ -1,0 +1,15 @@
+# Environnement virtuel (très lourd, jamais envoyé sur GitHub)
+venv/
+.venv/
+
+# Fichiers temporaires Python
+__pycache__/
+*.pyc
+
+# Base des comptes utilisateurs (données privées)
+comptes_utilisateurs.db
+
+# Clés et mots de passe (JAMAIS publics)
+.streamlit/secrets.toml
+*.json
+.env
